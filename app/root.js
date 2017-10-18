@@ -1,11 +1,13 @@
 import React from 'react';
 import Header from './components/header';
 import Player from './page/player';
+import {MUSIC_LIST} from './config/musiclist';//只有取export default的值的时候不需要{}
 
 let duration = null;
 const Root = React.createClass({
     getInitialState() {
         return {
+            currentMusicItem: MUSIC_LIST[0]
         }
     },
     componentDidMount() {
@@ -23,7 +25,9 @@ const Root = React.createClass({
         return (
             <div>
                 <Header />
-                <Player></Player>
+                <Player
+                    currentMusicItem={this.state.currentMusicItem}
+                ></Player>
             </div>
         );
     }
